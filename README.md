@@ -79,6 +79,8 @@ npm run deploy
 
 The `predeploy` script will run automatically before the `deploy` script runs.
 
+The `deploy` script will create a gh-pages branch for the build.
+
 ### Update GitHub Repo Settings
 
 **Go to GitHub** and go to your repo settings.
