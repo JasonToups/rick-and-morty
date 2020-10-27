@@ -37,6 +37,60 @@ The following is a prioritized list of features.
 3. The app is responsive
 4. Bonus points if you take advantage of the location and episode endpoints to build your Rick and Morty user experience
 
+# Dependencies
+
+- axios
+- react-hook-form
+- gh-pages
+- node-sass
+
+## Integrating gh-pages
+
+Install gh-pages as a dev-dependency 
+```
+npm install gh-pages --save-dev
+```
+
+### Update the `package.json` file
+
+1. Before the "dependencies" field, add a `homepage` field using this string template:
+    - `"http://{username}.github.io/{repo-name}"`
+    - where `{username}` is your GitHub username
+    - and `{repo-name}` is the name of the GitHub repo you created.
+```
+"homepage": "https://myusername.github.io/guide-react-gh-pages",
+"dependencies": {
+```
+> Make sure to add this homepage field and url to your package.json file. This URL is what `gh-pages` uses to deploy your app to.
+
+2. Update the existing `scripts` field with the following:
+```
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+}
+```
+3. Deploy the app from your main local branch.
+```
+npm run deploy
+```
+
+The `predeploy` script will run automatically before the `deploy` script runs.
+
+### Update GitHub Repo Settings
+
+**Go to GitHub** and go to your repo settings.
+
+Towards the bottom of the setttings page, there's a section about GitHub Pages.
+
+Under `source` you should see a dropdown menu of the different branches of your repo, point it to the `gh-pages` **branch** and click save.
+> You shouldn't change your local branch to gh-pages and push anything to that branch. When you are on your main branch, that's the only branch you should deploy from.
+
+The app is now accessible at the URL you specified in the `homepage` field in the `package.json` file. You should see a link to it in your repo settings, under the GitHub Pages section.
+
+
 # Todos
 
 ## API Call for All Characters with Axios
