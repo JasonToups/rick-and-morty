@@ -28,7 +28,7 @@ const Card = ({
         <p>Last known location:</p>
         <p>{location}</p>
         <p>First seen in:</p>
-        <p>episode {episodeFirst}</p>
+        <p>{episodeFirst}</p>
       </div>
     </div>
   );
