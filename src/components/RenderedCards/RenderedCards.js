@@ -18,7 +18,7 @@ const RenderedCards = ({ results }) => {
       console.log(character);
       return (
         <Card
-          key={character.id}
+          id={character.id}
           imgSrc={character.image}
           imgAlt={character.name}
           name={character.name}

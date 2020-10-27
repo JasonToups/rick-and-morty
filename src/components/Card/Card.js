@@ -2,6 +2,7 @@ import React from 'react';
 import './Card.scss';
 
 const Card = ({
+  id,
   imgSrc,
   imgAlt,
   name,
@@ -12,15 +13,17 @@ const Card = ({
   episodeFirst,
   episodes,
 }: {
-  [key: string]: any;
+  [key: string]: any,
 }) => {
   return (
-    <div className='card'>
+    <div className='card' key={id}>
       <div className='card-image--wrapper'>
         <img className='card-image' src={imgSrc} alt={imgAlt} />
       </div>
       <div className='card-body'>
-        <h2>{name}</h2>
+        <h2>
+          #{id} - {name}
+        </h2>
         <h3>
           {status} - {species} - {gender}
         </h3>

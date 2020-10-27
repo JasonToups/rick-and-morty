@@ -46,7 +46,8 @@ The following is a prioritized list of features.
 
 ## Integrating gh-pages
 
-Install gh-pages as a dev-dependency 
+Install gh-pages as a dev-dependency
+
 ```
 npm install gh-pages --save-dev
 ```
@@ -54,16 +55,19 @@ npm install gh-pages --save-dev
 ### Update the `package.json` file
 
 1. Before the "dependencies" field, add a `homepage` field using this string template:
-    - `"http://{username}.github.io/{repo-name}"`
-    - where `{username}` is your GitHub username
-    - and `{repo-name}` is the name of the GitHub repo you created.
+   - `"http://{username}.github.io/{repo-name}"`
+   - where `{username}` is your GitHub username
+   - and `{repo-name}` is the name of the GitHub repo you created.
+
 ```
 "homepage": "https://myusername.github.io/guide-react-gh-pages",
 "dependencies": {
 ```
+
 > Make sure to add this homepage field and url to your package.json file. This URL is what `gh-pages` uses to deploy your app to.
 
 2. Update the existing `scripts` field with the following:
+
 ```
 "scripts": {
   "predeploy": "npm run build",
@@ -72,7 +76,9 @@ npm install gh-pages --save-dev
   "build": "react-scripts build",
 }
 ```
+
 3. Deploy the app from your main local branch.
+
 ```
 npm run deploy
 ```
@@ -83,16 +89,16 @@ The `deploy` script will create a gh-pages branch for the build.
 
 ### Update GitHub Repo Settings
 
-**Go to GitHub** and check for the gh-pages branch on your main page for your repo. 
+**Go to GitHub** and check for the gh-pages branch on your main page for your repo.
 If you see the gh-pages branch, then go to your repo settings.
 
 Towards the bottom of the setttings page, there's a section about GitHub Pages.
 
 Under `source` you should see a dropdown menu of the different branches of your repo, point it to the `gh-pages` **branch** and click save.
+
 > You shouldn't push anything to the gh-pages remote branch.
 
 The app is now accessible at the URL you specified in the `homepage` field in the `package.json` file. You should see a link to it in your repo settings, under the GitHub Pages section.
-
 
 # Todos
 
@@ -107,11 +113,12 @@ The app is now accessible at the URL you specified in the `homepage` field in th
 
 ## Cards
 
-1. IN PROGRESS - Create single card component to pass props into it to populate the card fields. I don't think we need state on this, since we want to update the fields on the card after it renders.
+1. Done - Create single card component to pass props into it to populate the card fields. I don't think we need state on this, since we want to update the fields on the card after it renders.
 
 ## Rendered Cards
 
-1. IN PROGRESS - Create the rendered cards container that will take the response from the API calls and render the results. Should pass api results into the container. This will be handled with state.
+1. Done - Create the rendered cards container that will take the response from the API calls and render the results. Should pass api results into the container. This will be handled with state.
+2. In-Progress - Implement Infinite Scroll function that will add more cards as the user scrolls down.
 
 ## Metadata
 
@@ -256,6 +263,7 @@ On the Character API return, there is an array of episodes urls. The names of th
 So we could loop through the episodes array, and display the names of the episodes. When the user clicks on the episode name, and accordion pops down and displays the rest of the information.
 
 ---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
