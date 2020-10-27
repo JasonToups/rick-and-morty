@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './Home.scss';
 import '../../components/HomeHeader/HomeHeader.scss';
@@ -9,15 +9,13 @@ import characteropedia from '../../assets/Characteropedia.png';
 import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
 const Home = () => {
-  const { useState, useEffect } = React;
   const [results, setResults] = useState(null);
-  const [renderCards, setRenderCards] = useState(null);
 
   useEffect(() => {
-    getCharacters();
+    setResults(getCharacters('https://rickandmortyapi.com/api/character/'));
   }, []);
 
-  const getCharacters = (endpoint) => {
+  const getCharacters = () => {
     const api = 'https://rickandmortyapi.com/api/character/';
     fetch(api)
       .then(response => response.json())

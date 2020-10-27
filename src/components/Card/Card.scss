@@ -41,4 +41,9 @@
   color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
+  h2,
+  h3,
+  p {
+    margin: 0.25rem;
+  }
 }
