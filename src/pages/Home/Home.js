@@ -6,6 +6,8 @@ import '../../components/Search/Search.scss';
 import logo from '../../assets/logo-RickAndMorty.png';
 import characteropedia from '../../assets/Characteropedia.png';
 
+import getCharacters from '../../api/getCharacters';
+
 import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
 const Home = () => {
@@ -14,10 +16,10 @@ const Home = () => {
   const [renderCards, setRenderCards] = useState(null);
 
   useEffect(() => {
-    getCharacters();
+    setResults(getCharacters('https://rickandmortyapi.com/api/character/'));
   }, []);
 
-  const getCharacters = (endpoint) => {
+  const getCharacters = () => {
     const api = 'https://rickandmortyapi.com/api/character/';
     fetch(api)
       .then(response => response.json())

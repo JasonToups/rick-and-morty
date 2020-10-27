@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-
 import './RenderedCards.scss';
 import Card from '../Card/Card';
+import getCharacters from '../../api/getCharacters';
 
 const RenderedCards = ({ results }) => {
   // number of results
@@ -13,7 +13,17 @@ const RenderedCards = ({ results }) => {
   // the result items to render
   const [items, setItems] = useState(results);
 
-  const resultsArray = results.results;
+  const getNextCharacters = endpoint => {
+    fetch(endpoint)
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        setItems([items, ...data]);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  };
 
   const mapCards = array => {
     return array.map(character => {
@@ -39,7 +49,7 @@ const RenderedCards = ({ results }) => {
       <div className='rendered-cards--header'>
         <h1>Number of Results: {count}</h1>
       </div>
-      <div className='rendered-cards--results'>{mapCards(resultsArray)}</div>
+      <div className='rendered-cards--results'>{mapCards(items.results)}</div>
     </section>
   );
 };
