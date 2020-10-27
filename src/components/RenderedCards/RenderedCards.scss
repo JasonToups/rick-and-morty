@@ -1,0 +1,21 @@
+@import '../../styles/utilities/breakpoints.scss';
+@import '../../styles/utilities/colors.scss';
+
+.rendered-cards {
+  background-color: $dark-grey;
+  color: $white;
+}
+
+.rendered-cards--header {
+  padding: 1rem;
+}
+
+.rendered-cards--results {
+  display: flex;
+  -moz-box-pack: center;
+  justify-content: center;
+  -moz-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1920px;
+}

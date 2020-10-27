@@ -83,12 +83,13 @@ The `deploy` script will create a gh-pages branch for the build.
 
 ### Update GitHub Repo Settings
 
-**Go to GitHub** and go to your repo settings.
+**Go to GitHub** and check for the gh-pages branch on your main page for your repo. 
+If you see the gh-pages branch, then go to your repo settings.
 
 Towards the bottom of the setttings page, there's a section about GitHub Pages.
 
 Under `source` you should see a dropdown menu of the different branches of your repo, point it to the `gh-pages` **branch** and click save.
-> You shouldn't change your local branch to gh-pages and push anything to that branch. When you are on your main branch, that's the only branch you should deploy from.
+> You shouldn't push anything to the gh-pages remote branch.
 
 The app is now accessible at the URL you specified in the `homepage` field in the `package.json` file. You should see a link to it in your repo settings, under the GitHub Pages section.
 
