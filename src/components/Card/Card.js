@@ -12,8 +12,6 @@ const Card = ({
   location,
   episodeFirst,
   episodes,
-}: {
-  [key: string]: any,
 }) => {
   return (
     <div className='card' key={id}>
