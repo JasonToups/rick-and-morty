@@ -3,62 +3,52 @@ import React from 'react';
 import './RenderedCards.scss';
 import Card from '../Card/Card';
 
-const RenderedCards = ({ results }: { [key: string]: any }) => {
+const RenderedCards = ({ results }) => {
   const resultsInfo = results.info;
   const count = resultsInfo.count;
   const pages = resultsInfo.pages;
   const next = resultsInfo.next;
   const prev = resultsInfo.prev;
+  const returnArray = [];
 
   const resultsArray = results.results;
 
-  const newArray = [{ number: 'one' }, { number: 'two' }, { number: 'three' }];
-  console.log(newArray.length);
-
-  const renderCards = (array: object[], info: object) => {
-    const returnArray = [];
+  const renderCards = (array, info) => {
     console.log('rendering cards');
-    interface infoValue {
-      count: number;
-      pages: number;
-      next: string | null;
-      prev: string | null;
-    }
-    function printInfo(info: infoValue) {
+
+    function printInfo(info) {
       console.log(info.count);
       console.log(info.pages);
       console.log(info.next);
       console.log(info.prev);
     }
-    interface arrayValue {
-      id: number;
-      name: string;
-      status: string;
-      species: string;
-      type: string;
-      gender: string;
-      origin: object;
-      location: object;
-      image: string;
-      episode: string[];
-      url: string;
-      created: string;
-    }
-    for (let x = 0; x < resultsArray.length; x++) {
-      console.log(resultsArray[x].image);
-      console.log(resultsArray[x].name);
-      console.log(resultsArray[x].species);
-      console.log(resultsArray[x].gender);
-      console.log(resultsArray[x].status);
-      console.log(resultsArray[x].location);
-      console.log(resultsArray[x].episode[0]);
-      console.log(resultsArray[x].episode);
-    }
 
-    function printArray(array: arrayValue) {}
-
-    printInfo(resultsInfo);
-    printArray(resultsArray);
+    for (let x = 0; x < array.length; x++) {
+      console.log(array[x].image);
+      console.log(array[x].name);
+      console.log(array[x].species);
+      console.log(array[x].gender);
+      console.log(array[x].status);
+      console.log(array[x].location);
+      console.log(array[x].episode[0]);
+      console.log(array[x].episode);
+      console.log(array[x].id);
+      returnArray.push(
+        <Card
+          key={array[x].id}
+          imgSrc={array[x].image}
+          imgAlt={array[x].name}
+          name={array[x].name}
+          status={array[x].status}
+          species={array[x].species}
+          gender={array[x].gender}
+          location={array[x].location}
+          episode={array[x].episode[0]}
+        />,
+      );
+    }
+    console.log(returnArray);
+    return returnArray;
   };
   renderCards(resultsArray, resultsInfo);
 
