@@ -9,7 +9,7 @@ const RenderedCards = ({ results }) => {
   // next url
   const [next, setNext] = useState(results.info.next);
   // amount of pages of results
-  const [pages, setPages] = useState(results.info.page);
+  const [pages, setPages] = useState(results.info.pages);
   // the result items to render
   const [items, setItems] = useState(results);
 
