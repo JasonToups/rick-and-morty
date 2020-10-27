@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './Home.scss';
 import '../../components/HomeHeader/HomeHeader.scss';
@@ -6,14 +6,10 @@ import '../../components/Search/Search.scss';
 import logo from '../../assets/logo-RickAndMorty.png';
 import characteropedia from '../../assets/Characteropedia.png';
 
-import getCharacters from '../../api/getCharacters';
-
 import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
 const Home = () => {
-  const { useState, useEffect } = React;
   const [results, setResults] = useState(null);
-  const [renderCards, setRenderCards] = useState(null);
 
   useEffect(() => {
     setResults(getCharacters('https://rickandmortyapi.com/api/character/'));
