@@ -13,6 +13,25 @@ const RenderedCards = ({ results }) => {
 
   const resultsArray = results.results;
 
+  const mapCards = array => {
+    return array.map(character => {
+      console.log(character);
+      return (
+        <Card
+          key={character.id}
+          imgSrc={character.image}
+          imgAlt={character.name}
+          name={character.name}
+          status={character.status}
+          species={character.species}
+          gender={character.gender}
+          location={character.location.name}
+          episode={character.episode[0]}
+        />
+      );
+    });
+  };
+
   const renderCards = (array, info) => {
     console.log('rendering cards');
 
@@ -57,21 +76,7 @@ const RenderedCards = ({ results }) => {
       <div className='rendered-cards--header'>
         <h1>Number of Results: {count}</h1>
       </div>
-      <div className='rendered-cards--results'>
-        <Card
-          imgSrc='https://rickandmortyapi.com/api/character/avatar/1.jpeg'
-          imgAlt='Rick Sanchez'
-          name='Rick Sanchez'
-          status='Alive'
-          species='Human'
-          gender='Male'
-          location='Earth (Replacement Dimension)'
-          episode='1'
-        />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <div className='rendered-cards--results'>{mapCards(resultsArray)}</div>
     </section>
   );
 };
