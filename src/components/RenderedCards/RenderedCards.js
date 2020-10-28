@@ -72,7 +72,11 @@ const RenderedCards = ({ results }) => {
             />
           );
         })}
-        {loading ? <h1>loading data ...</h1> : <h1>that's all folks!</h1>}
+        {loading ? (
+          <h1>loading data ...</h1>
+        ) : (
+          <h1>pull up for more laughs!</h1>
+        )}
         {noData ? <h1>that's all folks!</h1> : ''}
       </div>
     </section>
