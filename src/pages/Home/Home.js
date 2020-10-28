@@ -104,7 +104,7 @@ const Home = () => {
             <input
               className='submit-button'
               type='submit'
-              value='submit'></input>
+              value='Submit'></input>
           </form>
         </div>
       </section>
