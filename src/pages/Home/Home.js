@@ -11,7 +11,7 @@ import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
 const Home = () => {
   const [results, setResults] = useState(null);
-  const [characterName, setCharacterName] = useState('');
+  // const [characterName, setCharacterName] = useState('');
   const { register, handleSubmit, reset } = useForm();
 
   const api = 'https://rickandmortyapi.com/api/character/';
@@ -35,12 +35,14 @@ const Home = () => {
 
   const onSubmit = data => {
     // if (data.characterName) {
-    setCharacterName(data.characterName);
+    let characterName = data.characterName;
     let status = data.status;
-    console.log(status);
+    let gender = data.gender;
     // }
     setResults(
-      getCharacters(`${api}?name=${data.characterName}&status=${status}`),
+      getCharacters(
+        `${api}?name=${characterName}&status=${status}&gender=${gender}`,
+      ),
     );
   };
 
@@ -81,6 +83,21 @@ const Home = () => {
                 <option value=''>None</option>
                 <option value='alive'>Alive</option>
                 <option value='dead'>Dead</option>
+                <option value='unknown'>Unknown</option>
+              </select>
+            </div>
+            <div className='form-group'>
+              <label className='form-label'>Gender</label>
+              <select
+                className='form-field'
+                type='dropdown'
+                placeholder='Gender is fluid'
+                name='gender'
+                ref={register}>
+                <option value=''>None</option>
+                <option value='female'>Female</option>
+                <option value='male'>Male</option>
+                <option value='genderless'>Genderless</option>
                 <option value='unknown'>Unknown</option>
               </select>
             </div>
