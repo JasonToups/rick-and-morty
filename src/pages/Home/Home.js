@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 
 import './Home.scss';
 import '../../components/HomeHeader/HomeHeader.scss';
@@ -10,14 +11,17 @@ import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
 const Home = () => {
   const [results, setResults] = useState(null);
+  const { register, handleSubmit, reset } = useForm();
+
+  const api = 'https://rickandmortyapi.com/api/character/';
 
   useEffect(() => {
-    setResults(getCharacters('https://rickandmortyapi.com/api/character/'));
+    setResults(getCharacters(api));
+    reset();
   }, []);
 
-  const getCharacters = () => {
-    const api = 'https://rickandmortyapi.com/api/character/';
-    fetch(api)
+  const getCharacters = endpoint => {
+    fetch(endpoint)
       .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
@@ -26,6 +30,13 @@ const Home = () => {
       .catch(error => {
         console.error('Error:', error);
       });
+  };
+
+  const onSubmit = data => {
+    if (data.characterName) {
+      let characterName = data.characterName;
+      console.log(characterName);
+    }
   };
 
   return (
@@ -44,11 +55,13 @@ const Home = () => {
           />
         </div>
         <div className='search-form'>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <input
               className='search-field'
               type='text'
-              placeholder='Search for a character'></input>
+              placeholder='Search for a character'
+              name='characterName'
+              ref={register}></input>
             <input
               className='submit-button'
               type='submit'
