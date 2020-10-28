@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './RenderedCards.scss';
 import Card from '../Card/Card';
 // import characters from '../../api/characters';
@@ -14,10 +14,6 @@ const RenderedCards = ({ results }) => {
   const [loading, setLoading] = useState(false);
   // no data to load
   const [noData, setNoData] = useState(false);
-
-  useEffect(() => {
-    getNextCharacters(next);
-  }, []);
 
   // INFINITE SCROLL
   window.onscroll = () => {
@@ -57,10 +53,11 @@ const RenderedCards = ({ results }) => {
         <h1>Number of Results: {count}</h1>
       </div>
       <div className='rendered-cards--results'>
-        {items.map(character => {
+        {items.map((character, index) => {
           return (
             <Card
-              id={character.id}
+              key={index.toString()}
+              id={index + 1}
               imgSrc={character.image}
               imgAlt={character.name}
               name={character.name}

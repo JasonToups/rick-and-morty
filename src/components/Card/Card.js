@@ -14,7 +14,7 @@ const Card = ({
   episodes,
 }) => {
   return (
-    <div className='card' key={id}>
+    <div className='card'>
       <div className='card-image--wrapper'>
         <img className='card-image' src={imgSrc} alt={imgAlt} />
       </div>
