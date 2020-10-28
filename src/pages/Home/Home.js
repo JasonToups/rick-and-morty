@@ -11,6 +11,7 @@ import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
 const Home = () => {
   const [results, setResults] = useState(null);
+  const [characterName, setCharacterName] = useState('');
   const { register, handleSubmit, reset } = useForm();
 
   const api = 'https://rickandmortyapi.com/api/character/';
@@ -33,10 +34,14 @@ const Home = () => {
   };
 
   const onSubmit = data => {
-    if (data.characterName) {
-      let characterName = data.characterName;
-      console.log(characterName);
-    }
+    // if (data.characterName) {
+    setCharacterName(data.characterName);
+    let status = data.status;
+    console.log(status);
+    // }
+    setResults(
+      getCharacters(`${api}?name=${data.characterName}&status=${status}`),
+    );
   };
 
   return (
@@ -56,12 +61,29 @@ const Home = () => {
         </div>
         <div className='search-form'>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              className='search-field'
-              type='text'
-              placeholder='Search for a character'
-              name='characterName'
-              ref={register}></input>
+            <div className='form-group'>
+              <label className='form-label'>Name</label>
+              <input
+                className='form-field'
+                type='search'
+                placeholder='Search for a character'
+                name='characterName'
+                ref={register}></input>
+            </div>
+            <div className='form-group'>
+              <label className='form-label'>Status</label>
+              <select
+                className='form-field'
+                type='dropdown'
+                placeholder='Mortal Status'
+                name='status'
+                ref={register}>
+                <option value=''>None</option>
+                <option value='alive'>Alive</option>
+                <option value='dead'>Dead</option>
+                <option value='unknown'>Unknown</option>
+              </select>
+            </div>
             <input
               className='submit-button'
               type='submit'

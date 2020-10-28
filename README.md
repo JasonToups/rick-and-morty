@@ -118,7 +118,7 @@ The app is now accessible at the URL you specified in the `homepage` field in th
 ## Rendered Cards
 
 1. Done - Create the rendered cards container that will take the response from the API calls and render the results. Should pass api results into the container. This will be handled with state.
-2. In-Progress - Implement Infinite Scroll function that will add more cards as the user scrolls down.
+2. Done - Implement Infinite Scroll function that will add more cards as the user scrolls down.
 
 ## Metadata
 
