@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import './RenderedCards.scss';
 import Card from '../Card/Card';
-import characters from '../../api/characters';
+// import characters from '../../api/characters';
 
 const RenderedCards = ({ results }) => {
   // number of results
-  const [count, setCount] = useState(results.info.count);
+  const count = results.info.count;
   // next url
   const [next, setNext] = useState(results.info.next);
-  // amount of pages of results
-  const [pages, setPages] = useState(results.info.pages);
   // the result items to render
   const [items, setItems] = useState(results.results);
   // controls loading
   const [loading, setLoading] = useState(false);
   // no data to load
   const [noData, setNoData] = useState(false);
+
+  useEffect(() => {
+    getNextCharacters(next);
+  }, []);
 
   // INFINITE SCROLL
   window.onscroll = () => {
@@ -31,21 +33,22 @@ const RenderedCards = ({ results }) => {
 
   // TODO this function errors when it's time to map through the results and render cards, saying that the properties don't exist. Follow this guide to get infinite scrolling to work. https://dev.to/syakirurahman/react-infinite-scroll-tutorial-with-and-without-a-library-1abg
   const getNextCharacters = endpoint => {
-    if (next != null) {
-      setLoading(true);
-      fetch(endpoint)
-        .then(response => response.json())
-        .then(data => {
-          console.log('Success:', data);
-          setItems([items, ...data.results]);
-          console.log(items);
-          setNext(data.results.info.next);
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    }
+    setLoading(true);
+    fetch(endpoint)
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        const newItems = items.concat(data.results);
+        setItems(newItems);
+        setNext(data.info.next);
+        if (data.length === 0) setNoData(true);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -55,7 +58,6 @@ const RenderedCards = ({ results }) => {
       </div>
       <div className='rendered-cards--results'>
         {items.map(character => {
-          // console.log(character);
           return (
             <Card
               id={character.id}
@@ -70,7 +72,7 @@ const RenderedCards = ({ results }) => {
             />
           );
         })}
-        {loading ? <h1>loading data ...</h1> : ''}
+        {loading ? <h1>loading data ...</h1> : <h1>that's all folks!</h1>}
         {noData ? <h1>that's all folks!</h1> : ''}
       </div>
     </section>
