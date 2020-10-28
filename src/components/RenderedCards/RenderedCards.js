@@ -72,6 +72,8 @@ const RenderedCards = ({ results }) => {
             />
           );
         })}
+      </div>
+      <div className='rendered-cards--status'>
         {loading ? (
           <h1>loading data ...</h1>
         ) : (
