@@ -27,7 +27,8 @@ const RenderedCards = ({ results }) => {
     }
   };
 
-  // TODO this function errors when it's time to map through the results and render cards, saying that the properties don't exist. Follow this guide to get infinite scrolling to work. https://dev.to/syakirurahman/react-infinite-scroll-tutorial-with-and-without-a-library-1abg
+  // TODO BUG - When there are no results, set noData to true.
+  // TODO BUG - Fix the no results error, so the 'no more results' message will be rendered on the dom.
   const getNextCharacters = endpoint => {
     setLoading(true);
     fetch(endpoint)

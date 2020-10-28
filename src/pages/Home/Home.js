@@ -9,6 +9,8 @@ import characteropedia from '../../assets/Characteropedia.png';
 
 import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
+// TODO add state for the search fields, to render them on the dom over number of results.
+
 const Home = () => {
   const [results, setResults] = useState(null);
   // const [characterName, setCharacterName] = useState('');
@@ -18,7 +20,6 @@ const Home = () => {
 
   useEffect(() => {
     setResults(getCharacters(api));
-    reset();
   }, []);
 
   const getCharacters = endpoint => {
@@ -44,6 +45,7 @@ const Home = () => {
         `${api}?name=${characterName}&status=${status}&gender=${gender}`,
       ),
     );
+    reset();
   };
 
   return (
