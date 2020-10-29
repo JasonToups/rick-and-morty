@@ -13,6 +13,7 @@ import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
 const Home = () => {
   const [results, setResults] = useState(null);
+  const [noData, setNoData] = useState(null);
   const [characterName, setCharacterName] = useState('');
   const [gender, setGender] = useState('');
   const [status, setStatus] = useState('');
@@ -31,10 +32,13 @@ const Home = () => {
       .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
+        setNoData(false);
         setResults(data);
+        console.log(noData);
       })
       .catch(error => {
         console.error('Error:', error);
+        setNoData(true);
       });
   };
 
@@ -51,7 +55,6 @@ const Home = () => {
     setStringQuery(templateQuery);
     const query = `${api}?name=${data.characterName}&status=${data.status}&gender=${data.gender}`;
     setResults(getCharacters(query));
-
     reset();
   };
 
@@ -118,8 +121,15 @@ const Home = () => {
         </div>
       </section>
       {sentQuery ? (
-        <div className='query'>
+        <div className='search-status'>
           <h3>Searched for: {stringQuery}</h3>
+        </div>
+      ) : (
+        ''
+      )}
+      {noData ? (
+        <div className='search-status'>
+          <h3>There were no search results. Try again.</h3>
         </div>
       ) : (
         ''
