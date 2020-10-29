@@ -93,9 +93,6 @@ const Home = () => {
                 type='dropdown'
                 name='status'
                 ref={register}>
-                <option disabled hidden selected>
-                  mortal options
-                </option>
                 <option value=''>None</option>
                 <option value='alive'>Alive</option>
                 <option value='dead'>Dead</option>
@@ -109,9 +106,6 @@ const Home = () => {
                 type='dropdown'
                 name='gender'
                 ref={register}>
-                <option disabled hidden selected>
-                  select a gender
-                </option>
                 <option value=''>None</option>
                 <option value='female'>Female</option>
                 <option value='male'>Male</option>
