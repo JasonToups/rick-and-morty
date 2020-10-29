@@ -1,28 +1,26 @@
+// External imports
 import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-
+// Internal Stylesheets
 import './Home.scss';
 import '../../components/HomeHeader/HomeHeader.scss';
 import '../../components/Search/Search.scss';
+// Assets
 import logo from '../../assets/logo-RickAndMorty.png';
 import characteropedia from '../../assets/Characteropedia.png';
-
+// Components
 import RenderedCards from '../../components/RenderedCards/RenderedCards';
-
-// TODO add state for the search fields, to render them on the dom over number of results.
 
 const Home = () => {
   const [results, setResults] = useState(null);
   const [noData, setNoData] = useState(null);
-  const [characterName, setCharacterName] = useState('');
-  const [gender, setGender] = useState('');
-  const [status, setStatus] = useState('');
   const [sentQuery, setSentQuery] = useState(false);
   const [stringQuery, setStringQuery] = useState('');
   const { register, handleSubmit, reset } = useForm();
 
   const api = 'https://rickandmortyapi.com/api/character/';
 
+  // Requests the first 20 results of the entire Rick and Morty character list.
   useEffect(() => {
     setResults(getCharacters(api));
   }, []);
@@ -31,10 +29,16 @@ const Home = () => {
     fetch(endpoint)
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', data);
-        setNoData(false);
-        setResults(data);
-        console.log(noData);
+        if (data.error) {
+          console.error('Error:', data.error);
+          setNoData(true);
+          setResults('');
+        } else {
+          console.log('Success:', data);
+          setNoData(false);
+          setResults(data);
+          console.log(noData);
+        }
       })
       .catch(error => {
         console.error('Error:', error);
@@ -43,18 +47,18 @@ const Home = () => {
   };
 
   const onSubmit = data => {
-    setCharacterName(data.characterName);
-    setStatus(data.status);
-    setGender(data.gender);
     if (!data.characterName && !data.status && !data.gender) {
       setSentQuery(false);
     } else {
       setSentQuery(true);
     }
-    const templateQuery = `${data.characterName} ${data.status} ${data.gender}`;
-    setStringQuery(templateQuery);
+    // Creates the api query string to make the request
     const query = `${api}?name=${data.characterName}&status=${data.status}&gender=${data.gender}`;
     setResults(getCharacters(query));
+    // Creates the query results info to render on the dom.
+    const templateQuery = `${data.characterName} ${data.status} ${data.gender}`;
+    setStringQuery(templateQuery);
+    // Resets the form
     reset();
   };
 
@@ -89,9 +93,11 @@ const Home = () => {
               <select
                 className='form-field'
                 type='dropdown'
-                placeholder='Mortal Status'
                 name='status'
                 ref={register}>
+                <option disabled hidden selected>
+                  mortal options
+                </option>
                 <option value=''>None</option>
                 <option value='alive'>Alive</option>
                 <option value='dead'>Dead</option>
@@ -103,9 +109,11 @@ const Home = () => {
               <select
                 className='form-field'
                 type='dropdown'
-                placeholder='Gender is fluid'
                 name='gender'
                 ref={register}>
+                <option disabled hidden selected>
+                  select a gender
+                </option>
                 <option value=''>None</option>
                 <option value='female'>Female</option>
                 <option value='male'>Male</option>
@@ -134,11 +142,7 @@ const Home = () => {
       ) : (
         ''
       )}
-      {results ? (
-        <RenderedCards results={results} />
-      ) : (
-        <h1 className='text-loading'>Loading Results</h1>
-      )}
+      {results ? <RenderedCards results={results} /> : ''}
     </section>
   );
 };
