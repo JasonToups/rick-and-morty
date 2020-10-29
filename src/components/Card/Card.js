@@ -20,7 +20,7 @@ const Card = ({
       </div>
       <div className='card-body'>
         <h2>
-          #{id} - {name}
+          <span>#{id}</span> {name}
         </h2>
         <h3>
           {status} - {species} - {gender}
@@ -28,7 +28,7 @@ const Card = ({
         <p>Last known location:</p>
         <p>{location}</p>
         <p>First seen in:</p>
-        <p>{episodeFirst}</p>
+        <a href={episodeFirst}>{episodeFirst}</a>
       </div>
     </div>
   );
