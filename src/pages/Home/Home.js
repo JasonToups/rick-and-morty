@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 // Internal Stylesheets
 import './Home.scss';
-import '../../components/HomeHeader/HomeHeader.scss';
-import '../../components/Search/Search.scss';
 // Assets
 import logo from '../../assets/logo-RickAndMorty.png';
 import characteropedia from '../../assets/Characteropedia.png';
