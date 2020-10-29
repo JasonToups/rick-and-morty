@@ -26,7 +26,7 @@ const Card = ({
           {status} - {species} - {gender}
         </h3>
         <p>Last known location:</p>
-        <p>{location}</p>
+        <p className='location'>{location}</p>
         <p>First seen in:</p>
         <a href={episodeFirst}>{episodeFirst}</a>
       </div>
