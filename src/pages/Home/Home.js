@@ -124,9 +124,11 @@ const Home = () => {
       ) : (
         ''
       )}
-      <div></div>
-
-      {results ? <RenderedCards results={results} /> : <h1>Loading Results</h1>}
+      {results ? (
+        <RenderedCards results={results} />
+      ) : (
+        <h1 className='text-loading'>Loading Results</h1>
+      )}
     </section>
   );
 };

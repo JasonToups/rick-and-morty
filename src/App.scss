@@ -1,5 +1,8 @@
+@import './styles/utilities/colors.scss';
+
 .App {
   text-align: center;
+  background-color: $dark-grey;
 }
 
 .App-logo {
