@@ -39,10 +39,9 @@ The following is a prioritized list of features.
 
 # Dependencies
 
-- axios
+- node-sass
 - react-hook-form
 - gh-pages
-- node-sass
 
 ## Integrating gh-pages
 
@@ -102,12 +101,12 @@ The app is now accessible at the URL you specified in the `homepage` field in th
 
 # Todos
 
-## API Call for All Characters with Axios
+## API Call for All Characters
 
 1. DONE - On page load, an api call should be made to get all of the characters from the database.
 2. DONE - Save the api response in state on the Rendered Cards component.
 
-## API Call for Filtered Results with Axios
+## API Call for Filtered Results
 
 1. The results of the filtered call.
 
