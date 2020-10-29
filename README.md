@@ -1,4 +1,7 @@
-# Rick and Morty API
+# Rick and Morty Characteropedia
+
+<img src="./public/site.jpg" alt="Rick And Morty"
+	title="Site Image" height="250" />
 
 This site uses the Rick and Morty API to render a database of characters, locations and episodes.
 
