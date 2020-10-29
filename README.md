@@ -111,7 +111,7 @@ The app is now accessible at the URL you specified in the `homepage` field in th
 
 ## API Call for Filtered Results
 
-1. The results of the filtered call.
+1. DONE - The results of the filtered call.
 
 ## Cards
 
@@ -124,7 +124,7 @@ The app is now accessible at the URL you specified in the `homepage` field in th
 
 ## Metadata
 
-1. Update the header with the whole logo, and see if I can grab the Rick & Morty icon from the api site. for the favicon
+1. DONE - Update the header with the whole logo, and see if I can grab the Rick & Morty icon from the api site. for the favicon
 
 # API Results
 
@@ -235,7 +235,6 @@ Api endpoint: https://rickandmortyapi.com/api/episode/
 There should be a list of characters on page load, and if we have an infinite scroll, then users could scroll indefinitely through the pagination.
 
 The character listing card should have the image of the character, their name and all info that appears from the api return to the side.
-Under both there should be two accordion sections for location and episodes array.
 
 ## Users can filter the results
 
@@ -245,15 +244,17 @@ I could do a search that possibly submits a request for every keypress. I have t
 
 Otherwise, I can just use a submit button.
 
+I went with the submit button to only use state when necessary to improve reliability and performance.
+
 ## The app is responsive
 
-This shouldn’t be an issue. I could use CSS grid along with column overflow to wrap the results when they reach the edge of the page.
-
-I could do a media query to control the width of the cards, possibly.
+The app is responsive from desktop to mobile.
 
 ## Bonus points if you take advantage of the location and episode endpoints to build your Rick and Morty user experience
 
 I would like to see more info about the location and episodes of the character, so I could make a request from the characters api, get the return, then loop through the return and make a request for the location and episodes from the api return of the characters.
+
+I didn't end up doing this since I wanted to focus on error handling and cleaning up my existing code. This would be a great future feature.
 
 ## Handling Populating the Location Information
 
