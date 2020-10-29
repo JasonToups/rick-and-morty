@@ -13,7 +13,11 @@ import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
 const Home = () => {
   const [results, setResults] = useState(null);
-  // const [characterName, setCharacterName] = useState('');
+  const [characterName, setCharacterName] = useState('');
+  const [gender, setGender] = useState('');
+  const [status, setStatus] = useState('');
+  const [sentQuery, setSentQuery] = useState(false);
+  const [stringQuery, setStringQuery] = useState('');
   const { register, handleSubmit, reset } = useForm();
 
   const api = 'https://rickandmortyapi.com/api/character/';
@@ -35,16 +39,15 @@ const Home = () => {
   };
 
   const onSubmit = data => {
-    // if (data.characterName) {
-    let characterName = data.characterName;
-    let status = data.status;
-    let gender = data.gender;
-    // }
-    setResults(
-      getCharacters(
-        `${api}?name=${characterName}&status=${status}&gender=${gender}`,
-      ),
-    );
+    setCharacterName(data.characterName);
+    setStatus(data.status);
+    setGender(data.gender);
+    setSentQuery(true);
+    const templateQuery = `${characterName} ${status} ${gender}`;
+    setStringQuery(templateQuery);
+    const query = `${api}?name=${characterName}&status=${status}&gender=${gender}`;
+
+    setResults(getCharacters(query));
     reset();
   };
 
@@ -110,6 +113,15 @@ const Home = () => {
           </form>
         </div>
       </section>
+      {sentQuery ? (
+        <div className='query'>
+          <h3>Searched for: {stringQuery}</h3>
+        </div>
+      ) : (
+        ''
+      )}
+      <div></div>
+
       {results ? <RenderedCards results={results} /> : <h1>Loading Results</h1>}
     </section>
   );

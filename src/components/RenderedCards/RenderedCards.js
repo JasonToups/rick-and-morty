@@ -21,14 +21,14 @@ const RenderedCards = ({ results }) => {
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
-      if (!noData) {
+      if (next != null) {
         getNextCharacters(next);
+      } else {
+        setNoData(true);
       }
     }
   };
 
-  // TODO BUG - When there are no results, set noData to true.
-  // TODO BUG - Fix the no results error, so the 'no more results' message will be rendered on the dom.
   const getNextCharacters = endpoint => {
     setLoading(true);
     fetch(endpoint)
@@ -72,11 +72,7 @@ const RenderedCards = ({ results }) => {
         })}
       </div>
       <div className='rendered-cards--status'>
-        {loading ? (
-          <h1>loading data ...</h1>
-        ) : (
-          <h1>pull up for more laughs!</h1>
-        )}
+        {loading ? <h1>loading data ...</h1> : ''}
         {noData ? <h1>that's all folks!</h1> : ''}
       </div>
     </section>
