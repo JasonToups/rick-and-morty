@@ -42,12 +42,16 @@ const Home = () => {
     setCharacterName(data.characterName);
     setStatus(data.status);
     setGender(data.gender);
-    setSentQuery(true);
-    const templateQuery = `${characterName} ${status} ${gender}`;
+    if (!data.characterName && !data.status && !data.gender) {
+      setSentQuery(false);
+    } else {
+      setSentQuery(true);
+    }
+    const templateQuery = `${data.characterName} ${data.status} ${data.gender}`;
     setStringQuery(templateQuery);
-    const query = `${api}?name=${characterName}&status=${status}&gender=${gender}`;
-
+    const query = `${api}?name=${data.characterName}&status=${data.status}&gender=${data.gender}`;
     setResults(getCharacters(query));
+
     reset();
   };
 
