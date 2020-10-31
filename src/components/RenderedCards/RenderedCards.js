@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './RenderedCards.scss';
+import icon from '../../assets/icon-RickAndMorty-glow.svg';
 import Card from '../Card/Card';
-// import characters from '../../api/characters';
 
 const RenderedCards = ({ results }) => {
   // number of results
@@ -73,7 +73,11 @@ const RenderedCards = ({ results }) => {
       </div>
       <div className='rendered-cards--status'>
         {loading ? <h1>loading data ...</h1> : ''}
-        {noData ? <h1>that's all folks!</h1> : ''}
+        {noData ? <><h1>That's all Folks!</h1><img
+            className='rendered-cards--status-icon'
+            src={icon}
+            alt='rick and morty logo'
+          /></> : ''}
       </div>
     </section>
   );
