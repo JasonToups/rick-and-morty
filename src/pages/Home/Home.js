@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 // Internal Stylesheets
 import './Home.scss';
 // Assets
-import logo from '../../assets/logo-RickAndMorty.png';
-import characteropedia from '../../assets/Characteropedia.png';
+import logo from '../../assets/logo-RickAndMorty.svg';
+import characteropedia from '../../assets/Characteropedia.svg';
 // Components
 import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
