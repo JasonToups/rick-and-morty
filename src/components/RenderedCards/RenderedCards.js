@@ -52,7 +52,7 @@ const RenderedCards = ({ results }) => {
   return (
     <section className='rendered-cards'>
       <div className='rendered-cards--header'>
-        <h1>Number of Results: {count}</h1>
+        <h3>Number of Results: {count}</h3>
       </div>
       <div className='rendered-cards--results'>
         {items.map((character, index) => {

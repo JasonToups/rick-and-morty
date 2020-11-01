@@ -62,7 +62,17 @@
   color: white;
   grid-auto-columns: (100px, auto);
   background-color: $dark-grey;
+  justify-items: center;
+  h3 {
+    margin: .5rem;
+  }
 }
+
+// .search-status--no-results {
+//   h3 {
+//     margin-bottom: 0;
+//   }
+// }
 
 .text-loading {
   color: white;

@@ -6,6 +6,7 @@ import './Home.scss';
 // Assets
 import logo from '../../assets/logo-RickAndMorty.svg';
 import characteropedia from '../../assets/Characteropedia.svg';
+import icon from '../../assets/icon-RickAndMorty-NoSearchResults.svg';
 // Components
 import RenderedCards from '../../components/RenderedCards/RenderedCards';
 
@@ -129,7 +130,8 @@ const Home = () => {
       )}
       {noData ? (
         <div className='search-status'>
-          <h3>There were no search results. Try again.</h3>
+          <h3 className='search-status--no-results'>No search results. Try again!</h3>
+          <img className='rendered-cards--status-icon' src={icon} alt='rick and morty no search results' />
         </div>
       ) : (
         ''
