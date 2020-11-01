@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rick-and-morty/static/css/main.c858d5aa.chunk.css",
-    "main.js": "/rick-and-morty/static/js/main.680f911e.chunk.js",
-    "main.js.map": "/rick-and-morty/static/js/main.680f911e.chunk.js.map",
+    "main.js": "/rick-and-morty/static/js/main.ad9ed90b.chunk.js",
+    "main.js.map": "/rick-and-morty/static/js/main.ad9ed90b.chunk.js.map",
     "runtime-main.js": "/rick-and-morty/static/js/runtime-main.32e2afd5.js",
     "runtime-main.js.map": "/rick-and-morty/static/js/runtime-main.32e2afd5.js.map",
     "static/js/2.4e344e08.chunk.js": "/rick-and-morty/static/js/2.4e344e08.chunk.js",
@@ -12,14 +12,14 @@
     "index.html": "/rick-and-morty/index.html",
     "static/css/main.c858d5aa.chunk.css.map": "/rick-and-morty/static/css/main.c858d5aa.chunk.css.map",
     "static/js/2.4e344e08.chunk.js.LICENSE.txt": "/rick-and-morty/static/js/2.4e344e08.chunk.js.LICENSE.txt",
-    "static/media/Characteropedia.0814b805.png": "/rick-and-morty/static/media/Characteropedia.0814b805.png",
+    "static/media/Characteropedia.163e4658.svg": "/rick-and-morty/static/media/Characteropedia.163e4658.svg",
     "static/media/icon-RickAndMorty-folks.07b560ba.svg": "/rick-and-morty/static/media/icon-RickAndMorty-folks.07b560ba.svg",
-    "static/media/logo-RickAndMorty.53bd11aa.png": "/rick-and-morty/static/media/logo-RickAndMorty.53bd11aa.png"
+    "static/media/logo-RickAndMorty.1bf564e5.svg": "/rick-and-morty/static/media/logo-RickAndMorty.1bf564e5.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.32e2afd5.js",
     "static/js/2.4e344e08.chunk.js",
     "static/css/main.c858d5aa.chunk.css",
-    "static/js/main.680f911e.chunk.js"
+    "static/js/main.ad9ed90b.chunk.js"
   ]
 }
