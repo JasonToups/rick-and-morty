@@ -65,12 +65,12 @@ const Home = () => {
       <section className='home-header'>
         <div className='logos'>
           <img
-            className='home-header--image'
+            className='home-header--logo'
             src={logo}
             alt='rick and morty logo'
           />
           <img
-            className='home-header--image'
+            className='home-header--character'
             src={characteropedia}
             alt='characteropedia'
           />
