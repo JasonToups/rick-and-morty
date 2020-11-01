@@ -22,12 +22,10 @@
 }
 
 .rendered-cards--status {
-  display: grid;
-  justify-items: center;
   padding: 2rem;
   font-size: 1.5rem;
 }
 
 .rendered-cards--status-icon {
-  height: 30rem;
+  max-width: 30rem;
 }
