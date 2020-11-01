@@ -33,6 +33,7 @@
 .search-form {
   grid-area: searchForm;
   margin: 1rem;
+  font-size: 16px;
 }
 
 .search-from {
@@ -41,8 +42,9 @@
 }
 
 .form-field {
-  min-width: 10rem;
+  width: 10rem;
   margin: 0.5rem;
+  font-size: 16px
 }
 
 .submit-button {
