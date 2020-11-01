@@ -39,6 +39,7 @@ const RenderedCards = ({ results }) => {
         setItems(newItems);
         setNext(data.info.next);
         if (data.length === 0) setNoData(true);
+        if (data.results.length < 20) setNoData(true);
       })
       .catch(error => {
         console.error('Error:', error);
@@ -73,11 +74,11 @@ const RenderedCards = ({ results }) => {
       </div>
       <div className='rendered-cards--status'>
         {loading ? <h1>loading data ...</h1> : ''}
-        {noData ? <><img
+        {noData | items.length < 20 ? <img
             className='rendered-cards--status-icon'
             src={icon}
-            alt='rick and morty logo'
-          /></> : ''}
+            alt='rick and morty no more results'
+          /> : ''}
       </div>
     </section>
   );
