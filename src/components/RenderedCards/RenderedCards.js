@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+// Internal Stylesheets
 import './RenderedCards.scss';
+// Assets
 import icon from '../../assets/icon-RickAndMorty-folks.svg';
 import Card from '../Card/Card';
 
