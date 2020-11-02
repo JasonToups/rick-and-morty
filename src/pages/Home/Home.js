@@ -123,15 +123,15 @@ const Home = () => {
       </section>
       {sentQuery ? (
         <div className='search-status'>
-          <h3>Searched for: {stringQuery}</h3>
+          <h3 className='search-status--query'>Searched for: {stringQuery}</h3>
         </div>
       ) : (
         ''
       )}
       {noData ? (
         <div className='search-status'>
-          <h3 className='search-status--no-results'>No search results. Try again!</h3>
-          <img className='rendered-cards--status-icon' src={icon} alt='rick and morty no search results' />
+          <h3 className='search-status--message'>No search results. Try again!</h3>
+          <img className='search-status--icon' src={icon} alt='rick and morty no search results' />
         </div>
       ) : (
         ''

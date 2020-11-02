@@ -72,10 +72,10 @@ const RenderedCards = ({ results }) => {
           );
         })}
       </div>
-      <div className='rendered-cards--status'>
-        {loading ? <h1>loading data ...</h1> : ''}
+      <div className='search-status'>
+        {loading ? <h3 className='search-status--message'>loading data ...</h3> : ''}
         {noData | items.length < 20 ? <img
-            className='rendered-cards--status-icon'
+            className='search-status--icon'
             src={icon}
             alt='rick and morty no more results'
           /> : ''}
