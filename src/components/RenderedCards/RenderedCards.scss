@@ -12,3 +12,13 @@
     margin: .5rem;
   }
 }
+
+.rendered-cards--results {
+  display: flex;
+  -moz-box-pack: center;
+  justify-content: center;
+  -moz-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1920px;
+}
