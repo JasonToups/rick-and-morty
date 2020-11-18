@@ -34,20 +34,24 @@
   grid-area: searchForm;
   margin: 1rem;
   font-size: 16px;
-}
 
-.search-from {
-  display: grid;
-  vertical-align: left;
+  form {
+    display: grid;
+    grid-template-columns: .75fr 1fr;
+    align-items: center;
+    justify-items: center;
+  }
 }
 
 .form-field {
+  // width: 12rem;
   width: 12rem;
   margin: 0.5rem;
   font-size: 16px
 }
 
 .submit-button {
+  grid-column: 1 / span 2;
   font-size: 1rem;
   width: 7rem;
   height: 2rem;
